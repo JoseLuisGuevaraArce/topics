@@ -1,4 +1,4 @@
-<ngb-carousel *ngIf="images" [interval]="0">
+<ngb-carousel *ngIf="images" [interval]="0" [showNavigationArrows]="false" [showNavigationIndicators]="false">
   <ng-template ngbSlide *ngFor="let section of sections; index as i">
     <section *ngIf="section.topic" class="topic">
       <div class="center">
