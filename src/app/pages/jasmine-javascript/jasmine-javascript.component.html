@@ -1,35 +1,40 @@
-<ngb-carousel *ngIf="images">
-  <ng-template ngbSlide *ngFor="let img of images; index as i">
-    <div class="background">
-      <span>{{i+1}}</span>
-    </div>
-    <div class="carousel-caption">
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </div>
+<ngb-carousel *ngIf="images" [interval]="0">
+  <ng-template ngbSlide *ngFor="let section of sections; index as i">
+    <section *ngIf="section.topic" class="topic">
+      <div class="center">
+        <h1>{{section.topic}}</h1>
+        <a *ngIf="section.link" href="{{section.link}}" target="_blank">
+          <img [src]="section.imageSvg" alt="Jasmine">
+        </a>
+        <img *ngIf="section.image" class="image" [src]="section.image" alt="Jasmine">
+      </div>
+    </section>
+    <section *ngIf="!section.topic">
+      <div class="header">
+        <h1 class="title-layers">{{section.title}}</h1>
+      </div>
+      <div class="divider"></div>
+      <div *ngIf="section.subtitle" class="sub-header">
+        <h2 class="subtitle-layers">{{section.subtitle}}</h2>
+      </div>
+      <div *ngIf="section.content" class="content">
+        <span innerHTML="{{section.content}}"></span>
+      </div>
+      <div *ngIf="section.imgContent" class="content">
+        <div *ngFor="let content of section.imgContent">
+          <h2 class="content-title" innerHTML="{{content.title}}">{{content.title}}</h2>
+          <div class="wrapper-image">
+            <img [src]="content.path">
+          </div>
+        </div>
+      </div>
+      <div *ngIf="section.listContent" class="list-content">
+        <ul>
+          <li *ngFor="let content of section.listContent">
+            <span innerHTML="{{content}}"></span>
+          </li>
+        </ul>
+      </div>
+    </section>
   </ng-template>
-  <!-- <ng-template ngbSlide>
-    <div class="background">
-    </div>
-    <div class="carousel-caption">
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="background">
-    </div>
-    <div class="carousel-caption">
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="background">
-    </div>
-    <div class="carousel-caption">
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-    </div>
-  </ng-template> -->
 </ngb-carousel>
