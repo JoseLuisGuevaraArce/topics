@@ -6,9 +6,9 @@ import { LandingComponent } from './landing/landing.component';
 import { NotFoundComponent } from './notFound/not-found.component';
 
 const routes: Routes = [
-  {path: 'landing', component: LandingComponent},
+  // {path: 'landing', component: LandingComponent},
   {path: 'jasmine-javascript', component: JasmineJavascriptComponent},
-  {path: '', redirectTo: '/landing', pathMatch: 'full'},
+  {path: '', redirectTo: '/jasmine-javascript', pathMatch: 'full'},
   {path: '**', component: NotFoundComponent}
 ];
 
